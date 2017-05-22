@@ -18,6 +18,7 @@ class CreateBooksTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('driver_id')->unsigned();
             $table->integer('offer_id')->unsigned();
+            $table->string('date');
             $table->string('nama_waris');
             $table->string('tel_waris');
             $table->string('email_waris');

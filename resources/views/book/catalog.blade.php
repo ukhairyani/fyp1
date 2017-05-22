@@ -12,30 +12,7 @@
                 <input class="form-control" type="text" placeholder="Search your destination" name="search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
-                {{-- <h2 style="color: #0000cc">Gender</h2>
-                        <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                     <h4 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordian" href="#gender">
-                                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
-                                            Gender
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="gender" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                       <ul>
-                                          <li><a href="{{ url('/home') }}">Semua produk</a></li>
-                                          <li><a href="{{ url('/catalog?gender=Male') }}">Male</a></li>
-                                            <li><a href="{{ url('/catalog?gender=Female') }}">Female</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div><!--/category-products--> --}}
+                
             </form>
         </div>
 

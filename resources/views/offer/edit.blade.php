@@ -2,7 +2,7 @@
 @section('content')
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h2>Edit Offer</h2>
+        <h2><strong>Edit Offer</strong></h2>
     </div>
     <div class="panel-body">
         <div class="row">
@@ -10,6 +10,11 @@
                 <form class="form-horizontal" action="{{ action('OfferController@update', $offer->id) }}" method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     {{ method_field('PATCH') }}
+
+                    <div style="color:#ff0000; font-size:16px">
+                        NOTE: All fields are mandatory.
+                    </div>
+
                     <div class="form-group{{ $errors->has('date') ? ' has-error' : '' }}">
                         <label for="date" class="col-md-4 control-label">Date</label>
 
@@ -37,26 +42,6 @@
                             @endif
                         </div>
                     </div>
-
-                    {{-- <div class="form-group{{ $errors->has('seat') ? ' has-error' : '' }}">
-                        <label for="seat" class="col-md-4 control-label">No of Seat</label>
-
-                        <div class="col-md-3">
-                            <select id="seat" type="text" class="form-control" name="seat" required autofocus>
-                              <option value="{{ $offer->seat }}" selected="">{{ $offer->seat }}</option>
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                            </select>
-
-                            @if ($errors->has('seat'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('seat') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                    </div> --}}
 
                     <div class="form-group{{ $errors->has('state') ? ' has-error' : '' }}">
                         <label for="state" class="col-md-4 control-label">Destination</label>
@@ -91,20 +76,6 @@
                           </div>
                     </div>
 
-                    {{-- <div class="form-group{{ $errors->has('destination') ? ' has-error' : '' }}">
-                        <label for="destination" class="col-md-4 control-label">Destination</label>
-
-                        <div class="col-md-6">
-                            <input id="destination" type="text" class="form-control" name="destination" value="{{ $offer->destination }}" required autofocus>
-
-                            @if ($errors->has('destination'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('destination') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                    </div> --}}
-
                     <div class="form-group{{ $errors->has('est_duration') ? ' has-error' : '' }}">
                         <label for="est_duration" class="col-md-4 control-label">Estimate Duration</label>
 
@@ -137,7 +108,6 @@
 
                         </div>
                     </div>
-
 
                     <div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
                         <label for="price" class="col-md-4 control-label">Price (RM/passenger)</label>
@@ -217,10 +187,19 @@
                         </div>
                     </div>
 
+                    <div style="color:#ff0000; font-size:12px">
+                        *Accept instant booking means you automatically accept booking request from passenger.
+                    </div>
+                    <div style="color:#ff0000; font-size:12px">
+                          This feature only valid when passenger books ride a day before the ride date.
+                    </div>
+
+                    <br>
+
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <a href="{{ action('OfferController@index') }}" class="btn btn-default">Cancel</a>
-                            <button type="submit" class="btn btn-success">Save</button>
+                        <div class="col-sm-offset-4 col-sm-10">
+                            <button type="submit" class="btn btn-success" style="font-weight: bold; width:150px">Save</button>
+                            <a href="{{ action('OfferController@index') }}" class="btn btn-danger" style="font-weight: bold; width:150px">Cancel</a>
                         </div>
                     </div>
                 </form>

@@ -22,7 +22,7 @@
                     <table style="font-size:13px;" class="table table-striped">
                         <thead>
                             <tr>
-                                {{-- <th>#</th> --}}
+                                <th>#</th>
                                 <th width="10%">Date</th>
                                 <th width="10%">Time</th>
                                 <th width="15%">Destination</th>
@@ -41,7 +41,7 @@
                             @forelse($offers as $offer)
                                 <tr>
                                     {{-- @if($offer->date >= $current) --}}
-                                    {{-- <td>{{ $offers->firstItem() + $i }}</td> --}}
+                                    <td>{{ $offers->firstItem() + $i }}</td>
                                     <td>{{ $offer->date }}</td>
                                     <td>{{ $offer->time }}</td>
                                     <td>{{ $offer->destination }}</td>

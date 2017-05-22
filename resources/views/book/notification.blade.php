@@ -3,14 +3,14 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h2>List of Booking</h2>
+        <h2><strong>List of Booking</strong></h2>
     </div>
 
     <div class="panel-body">
         <div class="col-md-12">
             <form class="form-inline text-center" method="get" action="{{ url('catalog') }}">
-                <input class="form-control" type="text" placeholder="Search your destination" name="search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                {{-- <input class="form-control" type="text" placeholder="Search your destination" name="search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> --}}
             </form>
         </div>
 
@@ -36,7 +36,6 @@
                             <?php $i = 0 ?>
 
                             @forelse($books as $book)
-                                @if( $book->offer->driver_id == Auth::user()->id)
 
                                 <tr>
                                     <td>{{ $books->firstItem() + $i }}</td>
@@ -57,7 +56,6 @@
                                 </tr>
 
                                 <?php $i++ ?>
-                            @endif
                         @endif
 
                             @empty

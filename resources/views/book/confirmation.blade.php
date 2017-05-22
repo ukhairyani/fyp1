@@ -3,7 +3,7 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h2>List of Successful Booking</h2>
+        <h2><strong>List of Successful Booking</strong></h2>
     </div>
 
     <div class="panel-body">

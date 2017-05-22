@@ -19,25 +19,18 @@ class BooksController extends Controller
 
     public function index()
    {
-    $category = Input::get('gender');
 
-    $offers = null;
+    $searchResults =Input::get('search');
+    $current = Carbon::now();
 
-    if($category)
-    {
-        $offers = User::where('gender', 'like' ,"%$category%")->paginate(4);
-    }
-    else
-    {
-        $offers = Offer::where('destination','like','%'.Input::get('search').'%')->paginate(4);//search the related item
-    }
+    $offers = Offer::where([
+        ['destination','like','%'.$searchResults.'%'],
+        ['date','>', $current],
+        ['seat', '>', 0],
+        ])->paginate(4);
 
-    // $user = User::findOrFail(Auth::user()->id);
-    // $books = Book::findOrFail();
 
-    // dd($user);
-
-    return view('book.catalog', compact('offers'));
+        return view('book.catalog', compact('offers'));
    }
 
 
@@ -73,11 +66,13 @@ class BooksController extends Controller
         // $book->user_id = $user->id;
         $book->driver_id = $offer->driver_id;
         $book->offer_id = $offer->id;
+        $book->date = $offer->date;
         $book->nama_waris = $request->nama_waris;
         $book->tel_waris = $request->tel_waris;
         $book->email_waris = $request->email_waris;
         $book->drop_off = $request->drop_off;
         $book->kekerapan_notifikasi = $request->kekerapan_notifikasi;
+        $book->deposit = 0;
         $book->user_id = Auth::user()->id;
         $offer->seat = $offer->seat-1;
 
@@ -101,8 +96,15 @@ class BooksController extends Controller
 
     public function show() //show list of booking request in notification
     {
+        $current = Carbon::now();
+        // $dates = Book::where('driver_id', Auth::user()->id)->get();
+        // dd($dates->order);
 
-        $books = Book::with('user')->paginate(10);
+        // $books = Book::with('user')->where->paginate(10);
+        $books = Book::where([
+            ['driver_id','=', Auth::user()->id],
+            ['date', '>', $current],
+        ])->paginate(4);
         return view('book.notification', compact('books'));
 
     }
@@ -155,7 +157,10 @@ class BooksController extends Controller
 
     public function show2()
     {
-        $books = Book::with('user')->paginate();
+        // $books = Book::with('user')->paginate();
+        $books = Book::where([
+            ['user_id', '=', Auth::user()->id],
+        ])->paginate(4);
         return view('book.confirmation', compact('books'));
     }
 
