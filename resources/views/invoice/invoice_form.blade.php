@@ -51,15 +51,7 @@
             <h1>UKM CARPOOL<span></span></h1>
             <p>The easier way to share ride</p>
         </td>
-        {{-- <td class="address-company" style="text-align: right">
-            <h4>Pusat Kitar Semula UKM </h4>
-            <p style="margin-top: 0px;">
-                Bandar Baru Bangi <br/>
-                Malaysia<br/>
-                <br/>
-                T +33 555 444 333<br/><br/>
-            </p>
-        </td> --}}
+
     </tr>
     <tr>
         <td colspan="2" style="background: #F1F1F1;padding: 14px;">
@@ -102,11 +94,11 @@ RIDE DETAILS:
     </tr>
     <tr>
         <td width="40%" style="text-align: right; font-size: 18px;padding: 10px;">Price </td>
-        <td width="60%" style="text-align: left; font-size: 18px; font-weight: bold; padding: 10px;"> {{ $book->offer->price}}</td>
+        <td width="60%" style="text-align: left; font-size: 18px; font-weight: bold; padding: 10px;"> RM {{ $book->offer->price}}</td>
     </tr>
     <tr>
         <td width="40%" style="text-align: right; font-size: 18px;padding: 10px;">Deposit </td>
-        <td width="60%" style="text-align: left; font-size: 18px; font-weight: bold; padding: 10px;"> {{ $book->status_sah}} {{$book->deposit}}</td>
+        <td width="60%" style="text-align: left; font-size: 18px; font-weight: bold; padding: 10px;"> {{ $book->status_sah}} RM{{$book->deposit}}</td>
     </tr>
     </thead>
 

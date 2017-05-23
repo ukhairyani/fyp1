@@ -3,7 +3,7 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h2>Rate Your Passenger</h2>
+        <h2><strong>Rate Your Passenger</strong></h2>
     </div>
 
     <div class="panel-body">

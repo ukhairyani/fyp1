@@ -1,3 +1,4 @@
+@include('modal.destroy-modal')
 @extends('layouts.app')
 @section('content')
 
@@ -54,13 +55,15 @@
                     </div>
                 </div>
 
-                <div class="panel-footer">
-                    <a href="{{ url('home') }}" type="button" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Exit</a>
-                </div>
+
                 <div class="panel-footer">
                     {{-- @if($driver->user_id != Auth::user()->id) --}}
                         <a href="{{ action ('CommentpsController@index', $user->id) }}" class="btn btn-success">Leave Comment</a>
+                        <a href="{{ url('home') }}" type="button" class="btn btn-sm btn-danger"><i class="fa fa-times"></i> Exit</a>
+
                     {{-- @endif --}}
+                </div>
+                <div class="panel-footer">
                 </div>
 
 

@@ -262,20 +262,23 @@ class BooksController extends Controller
         if($book->status_sah == "Cancel"){
             $offer->seat = $offer->seat+1;
             $book->deposit = 0;
-
         }
 
         $book->save();
         $offer->save();
 
-        return redirect()->action('BooksController@index')->withMessage('You has accept the ride');
+        // return redirect()->action('BooksController@index')->withMessage('You has accept the ride');
+        return redirect()->action('BooksController@show2')->withMessage("You has successfully paid for deposit");
 
     }
 
     public function show3() //give feedback to passenger
     {
 
-        $books = Book::with('user')->paginate();
+        // $books = Book::with('user')->paginate();
+        $books = Book::where([
+            ['driver_id', '=', Auth::user()->id],
+        ])->paginate(4);
         return view('feedback.passenger_list', compact('books'));
 
     }

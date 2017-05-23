@@ -6,6 +6,7 @@ use App\Driver;
 use App\Offer;
 use App\Book;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Notifications\HantarEmel;
@@ -16,7 +17,12 @@ class StartsController extends Controller
 
     public function index()
     {
-        $books = Book::with('user')->paginate();
+        // $books = Book::with('user')->paginate();
+        $books = Book::where([
+            ['user_id', '=', Auth::user()->id],
+            ['status_sah', '=', "Paid"],
+        ])->paginate(4);
+
         return view('active.list_ride', compact('books'));
 
     }

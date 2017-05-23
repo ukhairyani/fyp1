@@ -16,7 +16,7 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h2>Start Your Ride</h2>
+        <h2><strong>Start Your Ride</strong></h2>
     </div>
 
     <div class="panel-body">
@@ -42,15 +42,15 @@
                                 <th width="10%">Driver Name</th>
                                 <th width="10%">Booking Status</th>
                                 <th width="10%">Confirmation Status</th>
-                                <th width="10%">Action</th>
+                                <th width="10%">Start</th>
+                                <th width="10%">Arrive  </th>
                             </tr>
                         </thead>
                         <tbody pull-{right}>
                             <?php $i = 0 ?>
 
                             @forelse($books as $book)
-                                @if( $book->user_id == Auth::user()->id)
-                                    @if($book->status_book == "Accept" && $book->status_sah == "Confirm")
+                                    {{-- @if($book->status_book == "Accept" && $book->status_sah == "Confirm") --}}
 
 
                                 <tr>
@@ -66,6 +66,7 @@
 
 
                                     <td><a href="{{ action('StartsController@create', $book->id) }}" class="btn btn-success" role="button">Start</a></td>
+                                    <td><a href="{{ action('StartsController@create', $book->id) }}" class="btn btn-success" role="button">Arrived!</a></td>
                                     {{-- <td><button type="submit" name="button">Send</button></td> --}}
 
 
@@ -73,8 +74,7 @@
                                 </tr>
 
                                 <?php $i++ ?>
-                            @endif
-                        @endif
+                            {{-- @endif --}}
 
                             @empty
                             <tr>

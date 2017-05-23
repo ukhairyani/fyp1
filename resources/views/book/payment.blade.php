@@ -1,16 +1,13 @@
 @extends('layouts.app')
-
 @section('content')
-    <div class="container">
-        <div class="row">
-        <div class="col-md-4">
-            <h1>Payment Details</h1>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2><strong>Payment Details</strong></h2>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-10">
             <h4>Deposit: RM{{ ($book->offer->price)/2 }}</h4>
-            {{-- <h1>Make Payment</h1>
-            <h4>Deposit: RM15</h4> --}}
-            <div id="charge-error" class="alert alert-danger {{ !Session::has('error') ? 'hidden' : '' }}">
-                {{ Session::get('error') }}
-            </div>
             <form action="{{ action('BooksController@update3', $book->id) }}" method="post" >
                 <div class="row">
                     <div class="col-xs-12">
@@ -61,7 +58,9 @@
                     </div>
                 </div>
                 {{ csrf_field() }}
-                <button id="status_sah" name="status_sah" value="Paid" type="submit" style="width:15%" class="btn btn-success" >Pay</button>
+                <div class="col-sm-offset-4 col-sm-10">
+                    <button id="status_sah" name="status_sah" value="Paid" type="submit" style="width:15%" class="btn btn-success" >Pay</button>
+                </div>
             </form>
             </div>
     </div>

@@ -5,7 +5,9 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading">
+                    <h2><strong>Register Account</strong></h2>
+                </div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
@@ -14,7 +16,7 @@
                             <label for="matricNo" class="col-md-4 control-label">Matric No</label>
 
                             <div class="col-md-6">
-                                <input id="matricNo" type="text" class="form-control" name="matricNo" value="{{ old('matricNo') }}" required autofocus>
+                                <input id="matricNo" type="text" class="form-control" name="matricNo" value="{{ $matricNo }}" readonly="yes" autofocus>
 
                                 @if ($errors->has('matricNo'))
                                     <span class="help-block">

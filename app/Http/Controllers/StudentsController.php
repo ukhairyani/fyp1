@@ -37,13 +37,14 @@ class StudentsController extends Controller
     public function store(Request $request)
     {
         $student= DB::connection('mysql2')->table('students')->where('matricNo', $request->matricNo)->exists();
+        $matricNo = $request->matricNo;
 
         if($student != null)
         {
-            return view('auth.register');
+            return view('auth.register', compact('matricNo'));
         }
         else {
-            return back()->withErrors('df');
+            return back()->withErrors("{$request->matricNo} is not a UKM student");
         }
 
     }

@@ -57,7 +57,7 @@
 
                                     @if($book->status_book == "Accept" && $book->status_sah == "Paid")
 
-                                    <td><a href="{{ action('BooksController@invoice', $book->id) }}" class="btn btn-success" role="button">Invoice</a></td>
+                                    <td><a href="{{ action('BooksController@invoice', $book->id) }}" class="btn btn-warning" role="button">Invoice</a></td>
                                     @endif
 
 

@@ -12,7 +12,7 @@
             <form class="form-horizontal" action="{{ action('BooksController@store', $book->id) }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
-        <div class="col-sm-6 col-md-6">
+        <div class="col-sm-6 col-md-6">     <!--open left-->
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 toppad" >
                 <div class="panel panel-info" style="margin-top:10px">
                     <div class="panel-heading">
@@ -74,7 +74,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>      <!--open left-->
 
         <div class="col-sm-6 col-md-6">     <!--open right-->
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 toppad" >
@@ -135,7 +135,6 @@
                 </div>
 
             </div>
-
         </div>  <!--close right-->
 
         </form>
